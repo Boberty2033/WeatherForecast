@@ -1,22 +1,33 @@
 # Xcode
-DerivedData/
+.DS_Store
 build/
+DerivedData/
 *.xcuserstate
 xcuserdata/
 
-# Mac OS
-.DS_Store
+# Xcode project metadata (можно игнорировать)
+*.xcodeproj/
+*.xcworkspace/
 
 # Swift Package Manager
 .build/
 
-# Pods
+# CocoaPods
 Pods/
+Podfile.lock
 
 # Carthage
 Carthage/Build/
 
-# App archive
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+
+# Archive / binaries
 *.ipa
-*.dSYM.zip
 *.dSYM
+*.dSYM.zip
+
+# Logs
+*.log
