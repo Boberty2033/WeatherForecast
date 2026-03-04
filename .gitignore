@@ -1,0 +1,22 @@
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+
+# Mac OS
+.DS_Store
+
+# Swift Package Manager
+.build/
+
+# Pods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# App archive
+*.ipa
+*.dSYM.zip
+*.dSYM
