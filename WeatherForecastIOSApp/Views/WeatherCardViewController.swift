@@ -9,6 +9,9 @@ import UIKit
 
 class WeatherCardViewController: UIViewController {
 
+    // MARK: - Properties
+    private let viewModel = WeatherViewModel()
+    
     // MARK: - UI Elements
     private let backgroundView = UIView()
     private let cityLabel = UILabel()
@@ -18,6 +21,10 @@ class WeatherCardViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         configureUI()
+        
+        bindViewModel()
+        
+        viewModel.loadData(for: "Moscow")
     }
 
     override func viewDidLayoutSubviews() {
@@ -26,6 +33,16 @@ class WeatherCardViewController: UIViewController {
             UIColor(red: 0.37, green: 0.72, blue: 1.00, alpha: 1.0),
             UIColor(red: 0.65, green: 0.85, blue: 1.00, alpha: 1.0)
         ])
+    }
+
+    // MARK: - Binding
+    private func bindViewModel() {
+        viewModel.onUpdate = { [weak self] in
+            DispatchQueue.main.async {
+                self?.cityLabel.text = self?.viewModel.cityName
+                self?.temperatureLabel.text = self?.viewModel.currentTemp
+            }
+        }
     }
 
     private func setupLayout() {
@@ -52,12 +69,10 @@ class WeatherCardViewController: UIViewController {
     }
 
     private func configureUI() {
-        cityLabel.text = "Moscow"
         cityLabel.font = .systemFont(ofSize: 40, weight: .bold)
         cityLabel.textColor = .white
         cityLabel.applyShadow()
 
-        temperatureLabel.text = "12°"
         temperatureLabel.font = .systemFont(ofSize: 80, weight: .thin)
         temperatureLabel.textColor = .white
         temperatureLabel.applyShadow()
