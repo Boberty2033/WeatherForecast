@@ -1,6 +1,6 @@
 //
 //  HourlyCollectionViewCell.swift
-//  WeatherForecast
+//  WeatherForecastIOSApp
 //
 //  Created by Alexander Dolgikh on 19.04.2026.
 //
